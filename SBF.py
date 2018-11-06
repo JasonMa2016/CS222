@@ -114,10 +114,12 @@ def run(FPR, tau, alpha=0.6185):
 	print("non adversarial (all test images)")
 	print("fps:", fps, "total:", total)
 	print("avg:", avg_fp)
-	print("="*30)
+	print("")
 	print("adversarial (all test shirts)")
 	print("fps:", fps_adv, "total:", total_adv)
 	print("avg:", avg_fp_adv)
+	print("="*30)
+	print("")
 
 if __name__ == "__main__":
   run(float(sys.argv[1]), float(sys.argv[2]))

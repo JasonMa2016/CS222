@@ -37,9 +37,25 @@ def run(FPR, tau_lst, alpha=0.6185):
 	    return(train_loader)
 
 	# train a model first
-	train_loader = get_train_loader(30)
+	train_loader = get_train_loader(10)
 	f = CNN()
-	trainNet(f, train_loader, val_loader, batch_size=30, n_epochs=1, learning_rate=0.01)
+	trainNet(f, train_loader, val_loader, batch_size=30, n_epochs=2, learning_rate=0.01)
+
+	# num_correct = 0
+	# num_total = 0
+	# max_probs = []
+	# for i, data in enumerate(test_loader, 0):
+	#   inputs, labels = data
+	#   inputs, labels = Variable(inputs), Variable(labels)
+	#   output_probs = torch.sigmoid(f(inputs)).detach().numpy()
+	#   max_probs = max_probs + list(output_probs.max(axis=1))
+	#   outputs = output_probs.argmax(axis=1)
+	  
+	#   num_total += len(labels)
+	#   num_correct += len(labels) - (outputs-labels).abs().sum()
+	  
+	# print("CNN accuracy on test data") 
+	# print((num_correct).numpy()/num_total)
 
 	FN = 0
 	num_shirts = 0
@@ -115,10 +131,11 @@ def run(FPR, tau_lst, alpha=0.6185):
 		print("non adversarial (all test images)")
 		print("fps:", fps, "total:", total)
 		print("avg:", avg_fp)
-		print("="*30)
 		print("adversarial (all test shirts)")
 		print("fps:", fps_adv, "total:", total_adv)
 		print("avg:", avg_fp_adv)
+		print("="*30)
+		print("")
 
 tau_list =  [0.3,0.4,0.5,0.6,0.7]
 if __name__ == "__main__":

@@ -116,6 +116,7 @@ def run(FPR, tau, alpha=0.6185):
   print("adversarial (all test shirts)")
   print("fps:", fps_adv, "total:", total_adv)
   print("avg:", avg_fp_adv)
+  print("="*30)
 
 if __name__ == "__main__":
   run(float(sys.argv[1]), float(sys.argv[2]))
